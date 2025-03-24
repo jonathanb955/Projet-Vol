@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Assure que le conteneur prend toute la hauteur de la fenêtre */
+    background-color: #f0f0f0; /* Ajoute une couleur de fond pour la page */
+    background-image: url('https://i.pinimg.com/originals/9b/8e/35/9b8e358a5b4107f6edbd883f4e45fa39.gif'); /* URL du GIF de fond */
+    background-size: cover; /* Assure que le GIF couvre toute la fenêtre */
+    background-repeat: no-repeat; /* Évite la répétition du GIF */
+    background-position: center; /* Centre le GIF */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 80%; /* Augmente davantage la largeur du conteneur */
+    max-width: 900px; /* Augmente la largeur maximale du conteneur */
+    padding: 40px; /* Augmente le padding pour donner plus d'espace interne */
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc avec 0.8 d'opacité pour plus de transparence */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre douce */
+} .header-title {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Assure que les éléments s'étendent pour remplir la hauteur */
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.form-container input {
+    margin-bottom: 10px;
+    padding: 10px; border:
+        1px solid #ccc;
+    border-radius: 4px;
+}
+.image-container {
+    position: relative; /* Pour permettre au texte d'être positionné par rapport à l'image */
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 200px; /* Limite la hauteur maximale */
+}
+.adjusted-gif {
+    width: auto;
+    height: 100%; /* Hauteur dynamique */
+    max-height: 200px; /* Assure que le GIF ne dépasse pas la hauteur du conteneur */
+    object-fit: contain; /* Maintient le ratio d'aspect */
+    margin-top:20px;
+    border-radius: 12px;
+}
+@keyframes changeCouleur {
+    0% { color: red; }
+    25% { color: yellow; }
+    50% { color: cyan; }
+    75% { color: gold; }
+    100% { color: greenyellow;}
+}
+.couleur-changeante {
+    animation: changeCouleur 3s infinite;
+}
+.retour {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 255, 0.9); /* Fond jaune avec opacité pour la transparence */
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000; /* Assure que l'alerte est au-dessus de tout le reste */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre douce */
+}
+.retour .btn-close {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: white; /* Ajoute un fond blanc pour la visibilité */
+    border: 1px solid black; /* Ajoute une bordure noire */
+    border-radius: 50%; /* Ajoute des coins arrondis pour le bouton */
+    font-size: 16px;
+    cursor: pointer;
+    color: black; /* Couleur noire pour le texte */
+    width: 18px; /* Fixe la largeur */
+    height: 18px; /* Fixe la hauteur */
+    text-align: center; /* Centre le texte horizontalement */
+    line-height: 22px; /* Centre le texte verticalement */
+    padding: 0; /* Enlève le padding pour s'adapter à la taille fixe */
+}
+
