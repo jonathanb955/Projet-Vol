@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
-    background-image: url('https://i.pinimg.com/originals/9b/8e/35/9b8e358a5b4107f6edbd883f4e45fa39.gif');
+    background-image: url('https://i.pinimg.com/originals/25/78/e6/2578e61428d936d894315262cf2dda72.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -28,13 +28,13 @@ body {
 
 }
 .header-title {
-      text-align: center;
-      margin-bottom: 20px;
-    border: 1px solid #004080; 
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #004080;
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 12px;
 }
-  
+
 .content {
     display: flex;
     justify-content: space-between;

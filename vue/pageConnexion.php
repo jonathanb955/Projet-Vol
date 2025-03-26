@@ -13,19 +13,26 @@
     <strong>Heureux de vous revoir parmis nous!</strong>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+
 <div class="container">
-    <u><h2  class="header-title"><b>SE CONNECTER</b></h2></u>
+    <h2  class="header-title" style="background-color: black; color: white; font-family: 'Times New Roman',serif">CONNEXION</h2>
     <br>
     <div class="content">
         <div class="form-container">
-            <strong>Votre email:</strong><input type="email" placeholder="Email">
+
+            <strong style="color: #004080; font-family: 'Times New Roman',serif">Votre email:</strong><input type="email" placeholder="Email">
             <br>
-            <strong>Votre mot de passe:</strong><input type="password" placeholder="Mot de passe">
+            <strong style="color: #004080; font-family: 'Times New Roman',serif"">Votre mot de passe:</strong><input type="password" placeholder="Mot de passe">
             <br>
-            <input type="submit" name="Se connecter" value="Se connecter">
+            <strong style="color: #004080; font-family: 'Times New Roman',serif"">Confirmation de votre mot de passe:</strong><input type="password" placeholder="Confirmer votre mot de passe">
+
+            <form action="vue/suggestionsVoyages.php" method="get">
+                <button type="submit" class="btn btn-dark " style="width: 200px; background-color: #004080 ; font-family: 'Times New Roman',serif"">S'inscrire</button>
+            </form>
+
             <br>
-            <p class="lienInscription">
-                Nouveau? Je souhaite <a href="PageInscription.html" class="header-button">m'inscrire</a>!
+            <p class="lienInscription" style="color: black; font-family: 'Times New Roman',serif"">
+                Nouveau? Je souhaite <a href="pageInscription.php" class="header-button" >m'inscrire</a>!
             </p>
         </div>
 
@@ -33,7 +40,7 @@
 
         </div>
     </div>
-</div>
+
 </body>
 </html>
 
