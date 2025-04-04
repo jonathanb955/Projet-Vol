@@ -1,109 +1,48 @@
 body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
-    background-image: url('https://i.pinimg.com/originals/25/78/e6/2578e61428d936d894315262cf2dda72.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    max-width: 900px;
-    padding: 40px;
-    border: 3px solid #ffffff;
-    border-radius: 10px;
-    background-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-
-
-
-}
-.header-title {
-    text-align: center;
-    margin-bottom: 20px;
-    border: 1px solid #004080;
-    padding: 5px;
-    border-radius: 12px;
-}
-
-.content {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
 }
 .form-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+.form-container h2 {
+    text-align: center;
+    color: #333333;
+}
+.form-container label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #555555;
 }
 .form-container input {
-    margin-bottom: 10px;
-    padding: 10px; border:
-        1px solid #ccc;
-    border-radius: 4px;
-}
-.image-container {
-    position: relative;
-    width: 35%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-height: 200px;
-}
-.adjusted-gif {
-    width: auto;
-    height: 100%;
-    max-height: 200px;
-    object-fit: contain;
-    margin-top:20px;
-    border-radius: 12px;
-}
-@keyframes changeCouleur {
-    0% { color: red; }
-    25% { color: yellow; }
-    50% { color: cyan; }
-    75% { color: gold; }
-    100% { color: greenyellow;}
-}
-.couleur-changeante {
-    animation: changeCouleur 3s infinite;
-}
-.retour {
-    position: fixed;
-    top: 0;
     width: 100%;
-    background-color: #004080;
-    color: black;
-    text-align: center;
-    padding: 10px 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
-.retour .btn-close {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 50%;
+.form-container button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    color: black;
-    width: 18px;
-    height: 18px;
-    text-align: center;
-    line-height: 22px;
-    padding: 0;
 }
-
-
+.form-container button:hover {
+    background-color: #45a049;
+}

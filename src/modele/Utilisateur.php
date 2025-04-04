@@ -89,6 +89,38 @@ class Utilisateur
     /**
      * @return mixed
      */
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * @param mixed $dateNaissance
+     */
+    public function setdateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVilleResidence()
+    {
+        return $this->villeResidence;
+    }
+
+    /**
+     * @param mixed $villeResidence
+     */
+    public function setvilleResidence($villeResidence)
+    {
+        $this-> villeResidence= $villeResidence;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getEmail()
     {
         return $this->email;
