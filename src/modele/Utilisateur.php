@@ -1,6 +1,8 @@
 <?php
 
+
 namespace modele;
+
 
 class Utilisateur
 
@@ -17,7 +19,9 @@ class Utilisateur
     private $mdp;
     private $role;
 
-    // hydrate
+    private $refVol;
+
+
     public function __construct(array $donnees)
     {
         $this->hydrate($donnees);
@@ -165,6 +169,23 @@ class Utilisateur
     {
         $this->role = $role;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRefVol()
+    {
+        return $this->refVol;
+    }
+
+    /**
+     * @param mixed $refVol
+     */
+    public function setRefVol($refVol)
+    {
+        $this->refVol = $refVol;
+    }
+
 
 
 }

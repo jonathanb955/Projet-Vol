@@ -8,27 +8,60 @@
 </head>
 
 <body>
-<form action="../src/traitement/AjoutUtilisateur.php"" method="POST">
+<form action="../src/traitement/gestionInscription.php" method="POST">
     <h2><u>Inscription</u></h2>
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" required>
-    <br><br>
-    <label for="prenom">Prénom :</label>
-    <input type="text" id="prenom" name="prenom" required>
-    <br><br>
-    <label for="dateNaissance">Date de naissance :</label>
-    <input type="date" id="dateNaissance" name="dateNaissance" required>
-    <br><br>
-    <label for="Ville">Ville :</label>
-    <input type="text" id="ville" name="ville" required>
-    <br><br>
-    <label for="email">Email :</label>
-    <input type="email" id="email" name="email" required>
-    <br><br>
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password" required>
-    <br><br>
+
+    <div>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+    </div>
+
+    <div>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+    </div>
+
+    <div>
+        <label for="date_naissance">Date de naissance :</label>
+        <input type="date" id="date_naissance" name="date_naissance" max="<?php echo date('Y-m-d'); ?>" required>
+    </div>
+
+    <div>
+        <label for="ville_residence">Ville de résidence :</label>
+        <input type="text" id="ville_residence" name="ville_residence" required>
+    </div>
+
+    <div>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+
+    <div>
+        <label for="mdp">Mot de passe :</label>
+        <input type="password" id="mdp" name="mdp" minlength="12" required>
+    </div>
+
+    <div>
+        <label for="passwordConfirm">Confirmer le mot de passe :</label>
+        <input type="password" id="mdpC" name="mdpC" minlength="12" required>
+    </div>
+
+    <?php
+    if (isset($_GET['parametre'])) {
+        if ($_GET['parametre'] == 'mdp') {
+            echo "<p style='color: red;'>❌ Les mots de passe ne correspondent pas.</p>";
+        } elseif ($_GET['parametre'] == 'mdpCourt') {
+            echo "<p style='color: red;'>❌ Le mot de passe doit contenir au moins 12 caractères.</p>";
+        } elseif ($_GET['parametre'] == 'doublon') {
+            echo "<p style='color: red;'>❌ Un compte avec cet email existe déjà.</p>";
+        } elseif ($_GET['parametre'] == 'champsVides') {
+            echo "<p style='color: red;'>❌ Merci de remplir tous les champs.</p>";
+        }
+    }
+    ?>
+
     <button type="submit">S'inscrire</button>
+    <p class="footer" style="color: #555">Déjà membre ? <a href="pageConnexion.php">Connectez-vous</a></p>
 </form>
 </body>
 </html>

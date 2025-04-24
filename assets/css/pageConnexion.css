@@ -1,109 +1,121 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    background-image: url('https://i.pinimg.com/originals/9b/8e/35/9b8e358a5b4107f6edbd883f4e45fa39.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    max-width: 900px;
-    padding: 40px;
-    border: 3px solid #ffffff;
-    border-radius: 10px;
-    background-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-
-
-
-}
-.header-title {
-      text-align: center;
-      margin-bottom: 20px;
-    border: 1px solid #004080; 
-    padding: 5px;
-    border-radius: 8px;
-}
-  
-.content {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-}
-.form-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-.form-container input {
-    margin-bottom: 10px;
-    padding: 10px; border:
-        1px solid #ccc;
-    border-radius: 4px;
-}
-.image-container {
-    position: relative;
-    width: 35%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-height: 200px;
-}
-.adjusted-gif {
-    width: auto;
+body, html {
     height: 100%;
-    max-height: 200px;
-    object-fit: contain;
-    margin-top:20px;
-    border-radius: 12px;
-}
-@keyframes changeCouleur {
-    0% { color: red; }
-    25% { color: yellow; }
-    50% { color: cyan; }
-    75% { color: gold; }
-    100% { color: greenyellow;}
-}
-.couleur-changeante {
-    animation: changeCouleur 3s infinite;
-}
-.retour {
-    position: fixed;
-    top: 0;
     width: 100%;
-    background-color: #004080;
-    color: black;
-    text-align: center;
-    padding: 10px 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #004080, #99c2ff);
 }
-.retour .btn-close {
+
+.background {
     position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
-    color: black;
-    width: 18px;
-    height: 18px;
-    text-align: center;
-    line-height: 22px;
-    padding: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('https://source.unsplash.com/random/1920x1080?city,night') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(5px);
+    z-index: -1;
 }
 
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
 
+.login-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    color: #004080;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.login-box:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #004080;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.textbox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: #f2f2f2;
+    transition: background 0.3s ease;
+}
+
+.textbox input:focus {
+    background: #e6f2ff;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #004080;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 64, 128, 0.3);
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    background: #003366;
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #004080;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #003366;
+}
