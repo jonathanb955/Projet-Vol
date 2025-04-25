@@ -13,13 +13,24 @@
     <div class="login-box">
         <h2>Bienvenue</h2>
         <p>Connectez-vous à votre compte</p>
-        <form action="#">
-            <div class="textbox">
-                <input type="text" placeholder="Nom d'utilisateur" name="username" required>
+        <form action="../src/traitement/gestionConnexion.php" method="POST">
+        <div class="textbox">
+                <input type="text" placeholder="Email" name="emailCo" required>
             </div>
             <div class="textbox">
-                <input type="password" placeholder="Mot de passe" name="password" required>
+                <input type="password" placeholder="Mot de passe" name="mdpCo" required>
             </div>
+
+            <?php
+            if (isset($_GET['parametre'])) {
+                if ($_GET['parametre'] == 'emailmdpInvalide') {
+                    echo "<p style='color: red;'>❌ Email ou mot de passe invalide.</p>";
+                } elseif ($_GET['parametre'] == 'infoManquante') {
+                    echo "<p style='color: red;'>❌ Merci de remplir tous les champs.</p>";
+                }
+            }
+            ?>
+
             <button type="submit" class="btn">Se connecter</button>
         </form>
         <p class="footer">Vous n'avez pas de compte ? <a href="pageInscription.php">Créez-en un</a></p>
