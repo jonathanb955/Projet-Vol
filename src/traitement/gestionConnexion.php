@@ -19,6 +19,8 @@ else{
         if(password_verify($_POST['mdpCo'],$utilisateur->getMdp())){
             $_SESSION['id_utilisateur'] = $utilisateur->getIdUtilisateur();
             $_SESSION['email'] = $utilisateur->getEmail();
+            $_SESSION['nom'] = $utilisateur->getNom();
+            $_SESSION['prenom'] = $utilisateur->getPrenom();
             if($utilisateur->getRole() == "admin"){
                 $_SESSION["connexion"] = true;
                 $_SESSION["connexionAdmin"] = true;

@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: index.php');
+    exit;
+}
+$connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,16 +28,23 @@
 <body>
 <header>
     <div class="d-flex justify-content-center align-items-center position-relative ">
-        <div class="btn-group position-absolute end-0 ">
+        <div class="btn-group position-absolute end-0 me-3">
             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person-square"></i>
             </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" style="text-align: center" href="vue/pageConnexion.php">Connexion<i class="bi bi-person-bounding-box"></i></a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" style="text-align: center"  href="vue/pageInscription.php">Inscription<i class="bi bi-person-plus-fill"></i></a></li>
+            <ul class="dropdown-menu text-center">
+                <?php if ($connecte): ?>
+                    <span class="dropdown-item-text"><strong>Bienvenue</strong><br><?php echo $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?></span>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="?logout=true"><i class="bi bi-box-arrow-right"></i> Déconnexion</a></li>
+                <?php else: ?>
+                    <li><a class="dropdown-item" href="vue/pageConnexion.php">Connexion <i class="bi bi-person-bounding-box"></i></a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="vue/pageInscription.php">Inscription <i class="bi bi-person-plus-fill"></i></a></li>
+                <?php endif; ?>
             </ul>
         </div>
+
         <h1 class="mb-0" style="text-transform: capitalize">Aéroport International JBSkyTravel</h1>
     </div>
 
@@ -108,7 +125,7 @@
             <div class="card mb-3 card-case" style="max-width: 540px;">
                 <div class="row g-0" style="height: 300px;">
                     <div class="col-md-4" style="height: 100%; overflow: hidden;">
-                        <img src="assets/img/statue-batiment-eclaire-contre-ciel-au-coucher-du-soleil-madrid-espagne_1048944-16260416.avif" class="img-fluid rounded-start" alt="..."style="width: 100%; height: 100%; object-fit: cover; display: block">
+                        <img src="assets/img/statue-batiment-eclaire-contre-ciel-au-coucher-du-soleil-madrid-espagne_1048944-16260416.avif" class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: cover; display: block">
                     </div>
                     <div class="col-md-8 d-flex align-items-center justify-content-center ">
                         <div class="card-body text-avec-background">

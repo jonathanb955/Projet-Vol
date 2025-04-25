@@ -15,6 +15,8 @@ class UtilisateurRepository {
         if ($donnees) {
             return new \modele\Utilisateur([
                 'id_utilisateur' => $donnees['id_utilisateur'],
+                'nom' => $donnees['nom'],
+                'prenom' => $donnees['prenom'],
                 'email' => $donnees['email'],
                 'mdp' => $donnees['mdp'],
                 'role' => $donnees['role']
