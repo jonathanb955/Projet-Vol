@@ -3,5 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/bdd/projet_vol.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/repository/UtilisateurRepository.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/repository/VolsRepository.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/catalogue.php" dialect="GenericSQL" />
   </component>
 </project>

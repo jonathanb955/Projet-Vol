@@ -1,8 +1,55 @@
 <?php
 
-namespace traitement;
+use modele\Vols;
+use repository\VolsRepository;
 
-class AjoutVols
-{
+require_once __DIR__ . '/../bdd/Bdd.php';
+require_once "../modele/Vols.php";
+require_once "../repository/VolsRepository.php";
 
+if (!empty($_POST["destination"]) && !empty($_POST["date_depart"]) && !empty($_POST["date_arrivee"]) && !empty($_POST["duree_trajet"]) && !empty($_POST["heure_depart"]) && !empty($_POST["heure_arrivee"]) && !empty($_POST["ville_depart"]) && !empty($_POST["ville_arrivee"]) && !empty($_POST["photo"])) {
+
+
+
+    $date_depart = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["date_depart"])));
+    $date_arrivee = date('Y-m-d', strtotime(str_replace('/', '-', $_POST["date_arrivee"])));
+
+    if ($date_depart > $date_arrivee) {
+        header("Location: ../../vue/ajoutsVol.php?error=date_incorrecte");
+        exit;
+    }
+
+
+
+         $nouveauVol = new Vols([
+             'destination' => $_POST["destination"],
+                'date_depart' => $_POST["date_depart"],
+             'date_arrivee' => $_POST["date_arrivee"],
+             'duree_trajet' => $_POST["duree_trajet"],
+             'heure_depart' => $_POST["heure_depart"],
+            'heure_arrivee' => $_POST["heure_arrivee"],
+             'ville_depart' => $_POST["ville_depart"],
+             'ville_arrivee' => $_POST["ville_arrivee"],
+        'photo' => $_POST["photo"],
+             'ref_reservation' => $_POST["ref_reservation"] ?? null,
+        'ref_avion' => $_POST["ref_avion"] ?? null,
+        'ref_pilote' => $_POST["ref_pilote"] ?? null
+    ]);
+
+    $volsRepository = new VolsRepository();
+
+    try {
+        $volsRepository->ajoutVols($nouveauVol);
+             header("Location: ../../vue/pageCatalogue.php?success=1");
+        exit;
+
+    } catch (Exception $e) {
+        die('Erreur lors de l\'insertion en BDD : ' . $e->getMessage());
+    }
+
+} else {
+    header("Location: ../../vue/ajoutsVol.php?error=champs_vides");
+    exit;
 }
+
+?>

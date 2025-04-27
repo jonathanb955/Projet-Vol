@@ -6,9 +6,14 @@ class Vols
 {
     private $idVols;
     private $destination;
+    private $dateDepart;
+    private $dateArrivee;
+    private $dureeTrajet;
     private $heureDepart;
     private $heureArrivee;
+    private $villeDepart;
     private $villeArrivee;
+    private $photo;
     private $refReservation;
     private $refAvion;
     private $refPilote;
@@ -102,6 +107,22 @@ class Vols
     /**
      * @return mixed
      */
+    public function getVilleDepart()
+    {
+        return $this->villeDepart;
+    }
+
+    /**
+     * @param mixed $villeDepart
+     */
+    public function setVilleDepart($villeDepart)
+    {
+        $this->villeDepart = $villeDepart;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getVilleArrivee()
     {
         return $this->villeArrivee;
@@ -161,6 +182,73 @@ class Vols
     public function setRefPilote($refPilote)
     {
         $this->refPilote = $refPilote;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateDepart()
+    {
+        return $this->dateDepart;
+    }
+
+    /**
+     * @param mixed $dateDepart
+     */
+    public
+    function setDateDepart($dateDepart)
+    {
+        $this->dateDepart = $dateDepart;
+    }
+
+    /**
+     * @return mixed
+     */
+    public
+    function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param mixed $photo
+     */
+    public
+    function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
+    /**
+     * @return mixed
+     */
+    public function getDateArrivee()
+    {
+        return $this->dateArrivee;
+    }
+
+    /**
+     * @param mixed $dateArrivee
+     */
+    public
+    function setDateArrivee($dateArrivee)
+    {
+        $this->dateArrivee = $dateArrivee;
+    }
+    /**
+     * @return mixed
+     */
+    public function getDureeTrajet()
+    {
+        return $this->dureeTrajet;
+    }
+
+    /**
+     * @param mixed $dureeTrajet
+     */
+    public
+    function setDureeTrajet($dureeTrajet)
+    {
+        $this->dureeTrajet = $dureeTrajet;
     }
 
 

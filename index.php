@@ -134,7 +134,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
 
                             <p class="card-text"><em>Madrid, capitale de l'Espagne, est une ville vibrante mêlant histoire et modernité. Réputée pour ses musées emblématiques comme le Prado, ses places animées telles que la Puerta del Sol, et sa vie nocturne dynamique, elle offre une expérience culturelle et festive unique.</em></p>
 
-                            <form action="vue/suggestionsVoyages.php" method="get">
+                            <form action="vue/ajoutVols.php" method="get">
                                 <button type="submit" class="btn btn-dark" style="width: 320px;">En savoir plus</button>
                             </form>
 
@@ -158,7 +158,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
 
                             <p class="card-text"><em>Oslo, la capitale de la Norvège, est une ville bordée par des forêts et le fjord d'Oslo. Célèbre pour ses musées, son architecture moderne et son cadre naturel, elle combine harmonieusement urbanisme et nature. Un lieu idéal pour la culture et les activités en plein air !</em></p>
 
-                            <form action="vue/suggestionsVoyages.php" method="get">
+                            <form action="vue/ajoutVols.php" method="get">
                                 <button type="submit" class="btn btn-dark" style="width: 320px;">En savoir plus</button>
                             </form>
 
@@ -187,7 +187,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
                             <h5 class="card-title"><i class="bi bi-geo-fill"></i><u>Venise, Italie</u></h5>
 
                             <p class="card-text"><em>Venise, en Italie, est une ville construite sur des îles reliées par des canaux et des ponts. Réputée pour ses gondoles, son architecture et sa place Saint-Marc, elle incarne le romantisme et la richesse culturelle.</em></p>
-                            <form action="vue/suggestionsVoyages.php" method="get">
+                            <form action="vue/ajoutVols.php" method="get">
                                 <button type="submit" class="btn btn-dark" style="width: 320px;">En savoir plus</button>
                             </form>
 
@@ -210,7 +210,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
 
                             <p class="card-text"><em>Tokyo, capitale du Japon, est une ville vibrante où tradition et innovation se rencontrent. Réputée pour ses gratte-ciel imposants, ses temples ancestraux et sa cuisine renommée, elle offre un mélange unique de patrimoine culturel et de modernité dynamique.</em></p>
 
-                            <form action="vue/suggestionsVoyages.php" method="get">
+                            <form action="vue/ajoutVols.php" method="get">
                                 <button type="submit" class="btn btn-dark" style="width: 320px;">En savoir plus</button>
                             </form>
 
@@ -229,7 +229,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
 
         <div class="card-footer text-body-secondary" style="background-color: #004080">
 
-            <a href="vue/suggestionsVoyages.php" class="btn btn-light" style="background-color: white; color: black; text-transform: uppercase ; font-family: 'Times New Roman',serif"><b>Explorez <i class="bi bi-compass"></i></b> </a>
+            <a href="vue/ajoutVols.php" class="btn btn-light" style="background-color: white; color: black; text-transform: uppercase ; font-family: 'Times New Roman',serif"><b>Explorez <i class="bi bi-compass"></i></b> </a>
        <br>
             <br>
         </div>

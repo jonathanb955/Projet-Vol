@@ -1,5 +1,7 @@
 <?php
 
+namespace bdd;
+use \PDO;
 
 class Bdd
 {
