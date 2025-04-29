@@ -1,4 +1,8 @@
+
 <?php
+
+use bdd\Bdd;
+
 session_start();
 if (isset($_GET['logout'])) {
     session_destroy();
@@ -229,38 +233,62 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
 
         <div class="card-footer text-body-secondary" style="background-color: #004080">
 
-            <a href="vue/catalogue.php" class="btn btn-light" style="background-color: white; color: black; text-transform: uppercase ; font-family: 'Times New Roman',serif"><b>Explorez <i class="bi bi-compass"></i></b> </a>
+            <a href="vue/reservation.php" class="btn btn-light" style="background-color: white; color: black; text-transform: uppercase ; font-family: 'Times New Roman',serif"><b>Explorez <i class="bi bi-compass"></i></b> </a>
        <br>
             <br>
         </div>
 </section>
 
 
-
+<br>
+<br>
+<br>
 
 <section id="vols">
-    <h2>Horaires des vols</h2>
+    <?php
+    require_once 'src/bdd/Bdd.php';
+    $bdd = new \bdd\Bdd();
+    $pdo = $bdd->getBdd();
+    $query = "SELECT id_vol, destination, heure_depart, heure_arrivee FROM vols ORDER BY id_vol DESC LIMIT 5";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $vols = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+    <div class="card text-center">
+        <div class="card-header" style="background-color:#004080">
+            <div class="message-case"><h4><em><u><strong>Horaires des vols<i class="bi bi-balloon-fill"></i></strong></u></em></h4></div>
+        </div>
+   <br>
     <table>
         <tr>
             <th>Vol</th>
             <th>Destination</th>
             <th>Heure de départ</th>
-            <th>Statut</th>
+            <th>Heure d'arrivée</th>
         </tr>
-        <tr>
-            <td>AF123</td>
-            <td>Paris</td>
-            <td>14:30</td>
-            <td>À l'heure</td>
-        </tr>
-        <tr>
-            <td>LH456</td>
-            <td>Berlin</td>
-            <td>15:00</td>
-            <td>Retardé</td>
-        </tr>
+        <?php
+        foreach ($vols as $vol) {
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($vol['id_vol']) . "</td>";
+            echo "<td>" . htmlspecialchars($vol['destination']) . "</td>";
+            echo "<td>" . htmlspecialchars($vol['heure_depart']) . "</td>";
+            echo "<td>" . htmlspecialchars($vol['heure_arrivee']) . "</td>";
+            echo "</tr>";
+        }
+        ?>
     </table>
+<br>
+        <div class="card-footer text-body-secondary" style="background-color: #004080">
+            <br>
+        </div>
+    </div>
 </section>
+
+<br>
+<br>
+<br>
+
+
 
 <section id="services">
 
@@ -304,7 +332,9 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
 
 </section>
 
-
+<br>
+<br>
+<br>
 
 <section id="contact">
 

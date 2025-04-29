@@ -43,6 +43,10 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         <label>Destination :</label>
         <input type="text" name="destination"  required>
 
+
+        <label>Description du lieu :</label>
+        <input type="text" name="description"  required>
+
         <label>Date départ:</label>
         <input type="date" name="date_depart"  min="<?php echo $today; ?>" required>
 

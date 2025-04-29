@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="../assets/css/catalogue.css">
 </head>
 <body>
+<h1 class="title">✈️ <u>Nos vols disponibles</u>✈️</h1>
 
-<h1 class="title">✈️ <u>Nos Vols Disponibles</u></h1>
 
 <div class="catalogue">
 
@@ -24,19 +24,18 @@
         echo '<img src="' . htmlspecialchars($vol['photo']) . '" alt="Image avion">';
         echo '<div class="film-info">';
         echo '<u><h2>Destination: ' . htmlspecialchars($vol['destination']) . '</h2></u>';
-        echo '<p><strong>Date de départ :</strong> ' . htmlspecialchars($vol['date_depart']) . '</p>';
-        echo '<p><strong>Date arrivé:</strong> ' . htmlspecialchars($vol['date_arrivee']) . '</p>';
-        echo '<p><strong>Durée trajet :</strong> ' . htmlspecialchars($vol['duree_trajet']) . '</p>';
-        echo '<p><strong>Heure départ :</strong> ' . htmlspecialchars($vol['heure_depart']) . '</p>';
-        echo '<p><strong>Heure arrivée :</strong> ' . htmlspecialchars($vol['heure_arrivee']) . '</p>';
-        echo '<p><strong>Lieu de départ :</strong> ' . htmlspecialchars($vol['ville_depart']) . '</p>';
-        echo '<p><strong>Lieu d\'arrivée :</strong> ' . htmlspecialchars($vol['ville_arrivee']) . '</p>';
+        echo '<p><strong>Description:</strong> ' . htmlspecialchars($vol['description']) . '</p>';
+        echo '<form action="reservation.php" method="get">
+    <button type="submit" class="btn btn-dark" name="vol_id" value="' . $vol['id_vol'] . '">En savoir plus</button>
+</form>';
         echo '</div>';
         echo '</div>';
     }
     ?>
 
+
 </div>
 
 </body>
 </html>
+

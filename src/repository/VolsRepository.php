@@ -15,9 +15,10 @@ class VolsRepository
     public function ajoutVols(Vols $vol) {
         $bdd = new Bdd();
         $database = $bdd->getBdd();
-        $req = $database->prepare('INSERT INTO vols (destination,	date_depart,date_arrivee,duree_trajet,  heure_depart,	heure_arrivee,	 ville_depart, ville_arrivee, photo, ref_reservation, ref_avion,	ref_pilote) VALUES (:destination, :date_depart, :date_arrivee, :duree_trajet ,:heure_depart, :heure_arrivee, :ville_depart, :ville_arrivee, :photo,:ref_reservation, :ref_avion, :ref_pilote)');
+        $req = $database->prepare('INSERT INTO vols (destination, description,	date_depart,date_arrivee,duree_trajet,  heure_depart,	heure_arrivee,	 ville_depart, ville_arrivee, photo, ref_reservation, ref_avion,	ref_pilote) VALUES (:destination,:description, :date_depart, :date_arrivee, :duree_trajet ,:heure_depart, :heure_arrivee, :ville_depart, :ville_arrivee, :photo,:ref_reservation, :ref_avion, :ref_pilote)');
         $req->execute([
             'destination' => $vol->getDestination(),
+            'description' => $vol->getDescription(),
             'date_depart' => $vol->getDateDepart(),
             'date_arrivee' => $vol->getDateArrivee(),
             'duree_trajet' => $vol->getDureeTrajet(),

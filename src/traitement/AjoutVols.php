@@ -7,7 +7,7 @@ require_once __DIR__ . '/../bdd/Bdd.php';
 require_once "../modele/Vols.php";
 require_once "../repository/VolsRepository.php";
 
-if (!empty($_POST["destination"]) && !empty($_POST["date_depart"]) && !empty($_POST["date_arrivee"]) && !empty($_POST["duree_trajet"]) && !empty($_POST["heure_depart"]) && !empty($_POST["heure_arrivee"]) && !empty($_POST["ville_depart"]) && !empty($_POST["ville_arrivee"]) && !empty($_POST["photo"])) {
+if (!empty($_POST["destination"])  &&!empty($_POST[" description"])&& !empty($_POST["date_depart"]) && !empty($_POST["date_arrivee"]) && !empty($_POST["duree_trajet"]) && !empty($_POST["heure_depart"]) && !empty($_POST["heure_arrivee"]) && !empty($_POST["ville_depart"]) && !empty($_POST["ville_arrivee"]) && !empty($_POST["photo"])) {
 
 
 
@@ -23,6 +23,7 @@ if (!empty($_POST["destination"]) && !empty($_POST["date_depart"]) && !empty($_P
 
          $nouveauVol = new Vols([
              'destination' => $_POST["destination"],
+                'description' => $_POST["description"],
                 'dateDepart' => $_POST["date_depart"],
              'dateArrivee' => $_POST["date_arrivee"],
              'dureeTrajet' => $_POST["duree_trajet"],

@@ -6,6 +6,7 @@ class Vols
 {
     private $idVols;
     private $destination;
+    private $description;
     private $dateDepart;
     private $dateArrivee;
     private $dureeTrajet;
@@ -249,6 +250,23 @@ class Vols
     function setDureeTrajet($dureeTrajet)
     {
         $this->dureeTrajet = $dureeTrajet;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public
+    function setDescription($description)
+    {
+        $this->description = $description;
     }
 
 
