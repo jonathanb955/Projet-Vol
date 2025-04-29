@@ -62,6 +62,7 @@
 
     <button type="submit">S'inscrire</button>
     <p class="footer" style="color: #555">Déjà membre ? <a href="pageConnexion.php">Connectez-vous</a></p>
+    <p class="footer"> <a href="../index.php">Retourner à l'accueil</a></p>
 </form>
 </body>
 </html>

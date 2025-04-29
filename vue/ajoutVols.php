@@ -33,7 +33,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 <body>
 
 <div class="form-container">
-    <h1>Ajouter des Vols ✈️</h1>
+    <h1><u>Ajouter des Vols ✈️</u></h1>
 
 
     <form action="../src/traitement/AjoutVols.php" method="POST">
@@ -58,10 +58,10 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         <label>Heure d'arrivée :</label>
         <input type="time" name="heure_arrivee"  required>
 
-        <label>Ville de départ :</label>
+        <label>Lieu de départ :</label>
         <input type="text" name="ville_depart"  required>
 
-        <label>Ville d'arrivée :</label>
+        <label>Lieu d'arrivée :</label>
         <input type="text" name="ville_arrivee"  required>
 
         <label for="photo">Lien de la photo de la destination :</label>

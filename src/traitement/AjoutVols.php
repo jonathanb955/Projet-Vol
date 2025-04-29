@@ -23,17 +23,17 @@ if (!empty($_POST["destination"]) && !empty($_POST["date_depart"]) && !empty($_P
 
          $nouveauVol = new Vols([
              'destination' => $_POST["destination"],
-                'date_depart' => $_POST["date_depart"],
-             'date_arrivee' => $_POST["date_arrivee"],
-             'duree_trajet' => $_POST["duree_trajet"],
-             'heure_depart' => $_POST["heure_depart"],
-            'heure_arrivee' => $_POST["heure_arrivee"],
-             'ville_depart' => $_POST["ville_depart"],
-             'ville_arrivee' => $_POST["ville_arrivee"],
+                'dateDepart' => $_POST["date_depart"],
+             'dateArrivee' => $_POST["date_arrivee"],
+             'dureeTrajet' => $_POST["duree_trajet"],
+             'heureDepart' => $_POST["heure_depart"],
+            'heureArrivee' => $_POST["heure_arrivee"],
+             'villeDepart' => $_POST["ville_depart"],
+             'villeArrivee' => $_POST["ville_arrivee"],
         'photo' => $_POST["photo"],
-             'ref_reservation' => $_POST["ref_reservation"] ?? null,
-        'ref_avion' => $_POST["ref_avion"] ?? null,
-        'ref_pilote' => $_POST["ref_pilote"] ?? null
+             'refReservation' => $_POST["ref_reservation"] ?? null,
+        'refAvion' => $_POST["ref_avion"] ?? null,
+        'refPilote' => $_POST["ref_pilote"] ?? null
     ]);
 
     $volsRepository = new VolsRepository();

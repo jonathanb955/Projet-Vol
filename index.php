@@ -229,7 +229,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
 
         <div class="card-footer text-body-secondary" style="background-color: #004080">
 
-            <a href="vue/ajoutVols.php" class="btn btn-light" style="background-color: white; color: black; text-transform: uppercase ; font-family: 'Times New Roman',serif"><b>Explorez <i class="bi bi-compass"></i></b> </a>
+            <a href="vue/catalogue.php" class="btn btn-light" style="background-color: white; color: black; text-transform: uppercase ; font-family: 'Times New Roman',serif"><b>Explorez <i class="bi bi-compass"></i></b> </a>
        <br>
             <br>
         </div>
