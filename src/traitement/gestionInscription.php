@@ -14,12 +14,11 @@ if (!empty($_POST["email"]) &&
     !empty($_POST["mdp"]) &&
     !empty($_POST["mdpC"])) {
 
-
     if (strlen($_POST["mdp"]) < 12) {
-    } else {
         header("Location: ../../vue/pageInscription.php?parametre=mdp");
-
+        exit();
     }
+
 
     if(($_POST["mdp"]==$_POST["mdpC"])) {
         $hashpassword = password_hash($_POST["mdp"], PASSWORD_DEFAULT);

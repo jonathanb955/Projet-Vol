@@ -1,4 +1,7 @@
 <?php
+
+use bdd\Bdd;
+
 require_once __DIR__ . '/../bdd/Bdd.php';
 
 

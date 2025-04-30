@@ -7,35 +7,32 @@
 </head>
 <body>
 <h1 class="title">✈️ <u>Nos vols disponibles</u>✈️</h1>
-
-
 <div class="catalogue">
 
     <?php
-
     $pdo = new PDO('mysql:host=localhost;dbname=projet_vol;charset=utf8', 'root', '');
 
 
-    $req = $pdo->query('SELECT * FROM vols');
-
-
-    while ($vol = $req->fetch(PDO::FETCH_ASSOC)) {
+    $req = $pdo->query('SELECT DISTINCT destination, description, photo FROM vols');
+    while ($destination = $req->fetch(PDO::FETCH_ASSOC)) {
+        $dest = $destination['destination'];
+        $desc = $destination['description'];
+        $photo = $destination['photo'];
         echo '<div class="film-card">';
-        echo '<img src="' . htmlspecialchars($vol['photo']) . '" alt="Image avion">';
+        echo '<img src="' . htmlspecialchars($photo) . '" alt="Photo de ' . htmlspecialchars($dest) . '" class="destination-photo">';
         echo '<div class="film-info">';
-        echo '<u><h2>Destination: ' . htmlspecialchars($vol['destination']) . '</h2></u>';
-        echo '<p><strong>Description:</strong> ' . htmlspecialchars($vol['description']) . '</p>';
+        echo '<u><h2>Destination: ' . htmlspecialchars($dest) . '</h2></u>';
+        echo '<p>' . htmlspecialchars($desc) . '</p>';
         echo '<form action="reservation.php" method="get">
-    <button type="submit" class="btn btn-dark" name="vol_id" value="' . $vol['id_vol'] . '">En savoir plus</button>
-</form>';
+              <button type="submit" class="btn btn-dark" name="destination" value="' . htmlspecialchars($dest) . '">Voir les vols</button>
+          </form>';
         echo '</div>';
         echo '</div>';
     }
-    ?>
 
+    ?>
 
 </div>
 
 </body>
 </html>
-
