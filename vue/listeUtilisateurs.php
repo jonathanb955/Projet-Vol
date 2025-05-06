@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Liste utilisateurs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -16,33 +16,48 @@ $stmt = $pdo->prepare($query);
 $stmt->execute();
 $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<div class="card text-center">
-    <div class="card-header" style="background-color:#004080">
-        <div class="message-case" style="color: white"><h4><em><u><strong>Liste des utilisateurs<i class="bi bi-balloon-fill"></i></strong></u></em></h4></div>
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+            <h4><strong>Liste des utilisateurs</strong></h4>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover table-striped align-middle">
+                <thead class="table-dark text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de naissance</th>
+                    <th>Ville de résidence</th>
+                    <th>Email</th>
+                    <th>Rôle</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($utilisateurs as $utilisateur): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($utilisateur['id_utilisateur']) ?></td>
+                        <td><?= htmlspecialchars($utilisateur['nom']) ?></td>
+                        <td><?= htmlspecialchars($utilisateur['prenom']) ?></td>
+                        <td><?= htmlspecialchars($utilisateur['date_naissance']) ?></td>
+                        <td><?= htmlspecialchars($utilisateur['ville_residence']) ?></td>
+                        <td><?= htmlspecialchars($utilisateur['email']) ?></td>
+                        <td><?= htmlspecialchars($utilisateur['role']) ?></td>
+                        <td class="text-center">
+                            <a href="modifUtilisateur.php?id_utilisateur=<?= $utilisateur['id_utilisateur'] ?>" class="btn btn-warning btn-sm me-2">Modifier</a>
+                            <a href="suppUtilisateur.php?id_utilisateur=<?= $utilisateur['id_utilisateur'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">Supprimer</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <br>
-    <table>
-        <tr>
-            <th>id_utilisateur</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Date de naissance</th>
-            <th>Ville de résidence</th>
-            <th>Email</th>
-            <th>Rôle</th>
-        </tr>
-        <?php
-        foreach ($utilisateurs as $utilisateur) {
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars($utilisateur['id_utilisateur']) . "</td>";
-            echo "<td>" . htmlspecialchars($utilisateur['nom']) . "</td>";
-            echo "<td>" . htmlspecialchars($utilisateur['prenom']) . "</td>";
-            echo "<td>" . htmlspecialchars($utilisateur['date_naissance']) . "</td>";
-            echo "<td>" . htmlspecialchars($utilisateur['ville_residence']) . "</td>";
-            echo "<td>" . htmlspecialchars($utilisateur['email']) . "</td>";
-            echo "<td>" . htmlspecialchars($utilisateur['role']) . "</td>";
-            echo "</tr>";
-        }
-        ?>
-    </table>
-    <br>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

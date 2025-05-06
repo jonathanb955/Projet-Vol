@@ -40,7 +40,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
 
 
-        <label>Destination :</label>
+        <label>Destination (ville,pays):</label>
         <input type="text" name="destination"  required>
 
 
@@ -62,10 +62,10 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         <label>Heure d'arrivée :</label>
         <input type="time" name="heure_arrivee"  required>
 
-        <label>Lieu de départ :</label>
+        <label>Lieu de départ (aéroport, ville-pays):</label>
         <input type="text" name="ville_depart"  required>
 
-        <label>Lieu d'arrivée :</label>
+        <label>Lieu d'arrivée (aéroport, ville-pays):</label>
         <input type="text" name="ville_arrivee"  required>
 
         <label for="photo">Lien de la photo de la destination :</label>

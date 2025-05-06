@@ -80,5 +80,35 @@ class UtilisateurRepository {
             return false;
         }
     }
+
+
+    public function modifierUtilisateur(\modele\Utilisateur $utilisateur) {
+        try {
+            $bdd = new Bdd();
+            $database = $bdd->getBdd();
+            $req = $database->prepare("UPDATE utilisateur 
+            SET nom = :nom, prenom = :prenom, date_naissance = :date_naissance, 
+                ville_residence = :ville_residence, email = :email, role = :role  
+            WHERE id_utilisateur = :id_utilisateur");
+
+            $req->execute([
+                'nom' => $utilisateur->getNom(),
+                'prenom' => $utilisateur->getPrenom(),
+                'date_naissance' => $utilisateur->getDateNaissance(),
+                'ville_residence' => $utilisateur->getVilleResidence(),
+                'email' => $utilisateur->getEmail(),
+                'role' => $utilisateur->getRole(),
+                'id_utilisateur' => $utilisateur->getIdUtilisateur()
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            die("Erreur SQL : " . $e->getMessage());
+        }
+    }
+
+
+
+
+
 }
 ?>

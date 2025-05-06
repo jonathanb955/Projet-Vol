@@ -40,6 +40,8 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
                 <?php if ($connecte): ?>
                     <span class="dropdown-item-text"><strong>Bienvenue</strong><br><?php echo $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?></span>
                     <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="../Projet-Vol/vue/espaceClient.php"><i class="bi bi-person-circle"></i> Espace Client</a></li>
+                    <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="?logout=true"><i class="bi bi-box-arrow-right"></i> Déconnexion</a></li>
                 <?php else: ?>
                     <li><a class="dropdown-item" href="vue/pageConnexion.php">Connexion <i class="bi bi-person-bounding-box"></i></a></li>

@@ -9,6 +9,8 @@ class Pilotes
     private $nomPilote;
     private $prenomPilote;
     private $conges;
+    private $refAvion;
+    private $refVol;
 
     public function __construct(array $donnees)
     {
@@ -90,5 +92,37 @@ class Pilotes
     public function setConges($conges)
     {
         $this-> conges= $conges;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRefAvion()
+    {
+        return $this->refAvion;
+    }
+
+    /**
+     * @param mixed $refAvion
+     */
+    public function setRefAvion($refAvion)
+    {
+        $this->refAvion = $refAvion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRefVol()
+    {
+        return $this->refVol;
+    }
+
+    /**
+     * @param mixed $refVol
+     */
+    public function setRefVol($refVol)
+    {
+        $this->refVol = $refVol;
     }
 }

@@ -3,6 +3,10 @@ body {
     background: linear-gradient(135deg, #004080, #99c2ff);
     margin: 0;
     padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-container {

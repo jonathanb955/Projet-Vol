@@ -1,3 +1,8 @@
+<?php
+if (isset($_GET['error']) && $_GET['error'] == 'unauthorized') {
+    echo '<div class="error-message">Accès réservé aux administrateurs.</div>';
+}
+?>
 
 <!DOCTYPE html>
 <html lang="fr">

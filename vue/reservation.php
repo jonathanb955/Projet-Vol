@@ -36,7 +36,7 @@ if (isset($_GET['destination'])) {
             echo '<p><strong>Heure arrivée :</strong> ' . htmlspecialchars($vol['heure_arrivee']) . '</p>';
             echo '<p><strong>Lieu de départ :</strong> ' . htmlspecialchars($vol['ville_depart']) . '</p>';
             echo '<p><strong>Lieu d\'arrivée :</strong> ' . htmlspecialchars($vol['ville_arrivee']) . '</p>';
-            echo '<form action="reservation.php" method="get">
+            echo '<form action="pageReservation.php" method="get">
                <button type="submit" class="btn btn-dark" name="vol_id" value="' . $vol['id_vol'] . '">Réserver</button>
                   </form>';
             echo '</div>';

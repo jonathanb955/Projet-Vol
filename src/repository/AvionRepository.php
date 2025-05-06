@@ -11,9 +11,9 @@ class AvionRepository
     public function ajoutAvion(Avion $avion) {
         $bdd = new Bdd();
         $database = $bdd->getBdd();
-        $req = $database->prepare('INSERT INTO avions (nom, capacite, localisation_avion) VALUES (:nom, :capacite, :localisation_avion)');
+        $req = $database->prepare('INSERT INTO avions (modele, capacite, localisation_avion) VALUES (:modele, :capacite, :localisation_avion)');
         $req->execute([
-            'nom' => $avion->getNomAvion(),
+            'modele' => $avion->getModeleAvion(),
             'capacite' => $avion->getCapaciteAvion(),
             'localisation_avion' => $avion->getLocalisationAvion()
 

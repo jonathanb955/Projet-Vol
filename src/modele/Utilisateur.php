@@ -30,22 +30,22 @@ class Utilisateur
     private function hydrate(array $donnees)
     {
         foreach ($donnees as $key => $value) {
-            // On récupère le nom du setter correspondant à l'attribut
-            $method = 'set' . ucfirst($key);
+            // Convertir snake_case en CamelCase
+            $camelKey = str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
+            $method = 'set' . $camelKey;
 
-            // Si le setter correspondant existe.
             if (method_exists($this, $method)) {
-                // On appelle le setter
                 $this->$method($value);
             }
         }
     }
+
     //getter setter
 
     /**
      * @return mixed
      */
-    public function getidUtilisateur()
+    public function getIdUtilisateur()
     {
         return $this->idUtilisateur;
     }
@@ -53,7 +53,7 @@ class Utilisateur
     /**
      * @param mixed $idUtilisateur
      */
-    public function setidUtilisateur($idUtilisateur)
+    public function setIdUtilisateur($idUtilisateur)
     {
         $this->idUtilisateur = $idUtilisateur;
     }

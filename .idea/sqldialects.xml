@@ -4,11 +4,21 @@
     <file url="file://$PROJECT_DIR$/index.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/bdd/projet_vol.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/repository/AvionRepository.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/repository/PilotesRepository.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/repository/UtilisateurRepository.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/repository/VolsRepository.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/traitement/gestionUtilisateurs.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/catalogue.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/espaceClient.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/listeAvions.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/listePilotes.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/listeUtilisateurs.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/listeVols.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/modifUtilisateur.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/modifVol.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/pageReservation.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/reservation.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/suppUtilisateur.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/suppVol.php" dialect="GenericSQL" />
   </component>
 </project>

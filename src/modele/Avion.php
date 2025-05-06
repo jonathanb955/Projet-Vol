@@ -5,7 +5,7 @@ namespace modele;
 class Avion
 {
  private $idAvion;
- private $nomAvion;
+ private $modeleAvion;
  private $capaciteAvion;
  private $localisationAvion;
 
@@ -16,7 +16,7 @@ class Avion
 
     private function hydrate(array $donnees) {
         foreach ($donnees as $key => $value) {
-            // On récupère le nom du setter correspondant à l'attribut
+            // On récupère le modele du setter correspondant à l'attribut
             $method = 'set'.ucfirst($key);
 
             // Si le setter correspondant existe.
@@ -46,17 +46,17 @@ class Avion
     /**
      * @return mixed
      */
-    public function getNomAvion()
+    public function getModeleAvion()
     {
-        return $this->nomAvion;
+        return $this->modeleAvion;
     }
 
     /**
-     * @param mixed $nomAvion
+     * @param mixed $modeleAvion
      */
-    public function setNomAvion($nomAvion)
+    public function setModeleAvion($modeleAvion)
     {
-        $this->nomAvion = $nomAvion;
+        $this->modeleAvion = $modeleAvion;
     }
 
     /**

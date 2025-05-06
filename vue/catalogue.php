@@ -7,13 +7,33 @@
 </head>
 <body>
 <h1 class="title">✈️ <u>Nos vols disponibles</u>✈️</h1>
+
+
+<form action="" method="GET">
+    <input type="text" name="search" placeholder="Rechercher une destination..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+    <button type="submit">Rechercher</button>
+</form>
+
 <div class="catalogue">
 
     <?php
+
     $pdo = new PDO('mysql:host=localhost;dbname=projet_vol;charset=utf8', 'root', '');
 
 
-    $req = $pdo->query('SELECT DISTINCT destination, description, photo FROM vols');
+    $search = isset($_GET['search']) ? $_GET['search'] : '';
+
+
+    if ($search) {
+
+        $req = $pdo->prepare('SELECT DISTINCT destination, description, photo FROM vols WHERE destination LIKE :search');
+        $req->execute(['search' => '%' . $search . '%']);
+    } else {
+
+        $req = $pdo->query('SELECT DISTINCT destination, description, photo FROM vols');
+    }
+
+
     while ($destination = $req->fetch(PDO::FETCH_ASSOC)) {
         $dest = $destination['destination'];
         $desc = $destination['description'];
