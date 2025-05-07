@@ -14,10 +14,14 @@
     <file url="file://$PROJECT_DIR$/vue/listePilotes.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/listeUtilisateurs.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/listeVols.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/modifAvion.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/modifPilote.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/modifUtilisateur.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/modifVol.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/pageReservation.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/reservation.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/suppAvion.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vue/suppPilote.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/suppUtilisateur.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/vue/suppVol.php" dialect="GenericSQL" />
   </component>

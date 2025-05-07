@@ -12,7 +12,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=projet_vol;charset=utf8', 'root', ''
 $id_utilisateur = $_SESSION['id_utilisateur']; // Utilise l'id_utilisateur provenant de la session
 
 // Vérifier si l'utilisateur existe bien dans la base de données
-$req = $pdo->prepare("SELECT id_utilisateur, nom, prenom, dateNaissance, villeResidence, email FROM utilisateur WHERE id_utilisateur = ?");
+$req = $pdo->prepare("SELECT id_utilisateur, nom, prenom, date_naissance, ville_residence, email FROM utilisateur WHERE id_utilisateur = ?");
 $req->execute([$id_utilisateur]);
 $client = $req->fetch(PDO::FETCH_ASSOC);
 
@@ -24,12 +24,12 @@ if (!$client) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Mise à jour des informations
-    $update = $pdo->prepare("UPDATE utilisateur SET nom = ?, prenom = ?, dateNaissance = ?, villeResidence = ?, email = ? WHERE id_utilisateur = ?");
+    $update = $pdo->prepare("UPDATE utilisateur SET nom = ?, prenom = ?, date_naissance = ?, ville_residence = ?, email = ? WHERE id_utilisateur = ?");
     $update->execute([
         $_POST['nom'],
         $_POST['prenom'],
-        $_POST['dateNaissance'],
-        $_POST['villeResidence'],
+        $_POST['date_naissance'],
+        $_POST['ville_residence'],
         $_POST['email'],
         $id_utilisateur
     ]);
@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Espace Client</title>
+    <link href="../assets/css/espaceClient.css" rel="stylesheet">
 </head>
 <body>
 <h1>👤 Mon Espace Client</h1>
@@ -59,10 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" id="prenom" name="prenom" value="<?= htmlspecialchars($client['prenom']) ?>" required>
 
     <label for="dateNaissance">Date de Naissance</label>
-    <input type="date" id="dateNaissance" name="dateNaissance" value="<?= htmlspecialchars($client['dateNaissance']) ?>" required>
+    <input type="date" id="date_naissance" name="date_naissance" value="<?= htmlspecialchars($client['date_naissance']) ?>" required>
 
     <label for="villeResidence">Ville de Résidence</label>
-    <input type="text" id="villeResidence" name="villeResidence" value="<?= htmlspecialchars($client['villeResidence']) ?>" required>
+    <input type="text" id="ville_residence" name="ville_residence" value="<?= htmlspecialchars($client['ville_residence']) ?>" required>
 
     <label for="email">Email</label>
     <input type="email" id="email" name="email" value="<?= htmlspecialchars($client['email']) ?>" required>
@@ -88,5 +89,9 @@ if ($res) {
     echo "<p>Aucune réservation trouvée.</p>";
 }
 ?>
+
+<form action="../index.php" method="get">
+    <button type="submit" class="btn btn-light partenaire" style="background-color: #0d6efd ; color: white; text-align: center">Retour</button>
+</form>
 </body>
 </html>

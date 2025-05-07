@@ -30,6 +30,7 @@ $avions = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Modèle</th>
                     <th>Capacités</th>
                     <th>Localisation de l'avion</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,6 +40,11 @@ $avions = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= htmlspecialchars($avion['modele']) ?></td>
                         <td><?= htmlspecialchars($avion['capacite']) ?></td>
                         <td><?= htmlspecialchars($avion['localisation_avion']) ?></td>
+                        <td class="text-center">
+                            <a href="modifAvion.php?id_avion=<?= $avion['id_avion'] ?>" class="btn btn-warning btn-sm me-2">Modifier</a>
+                            <a href="suppAvion.php?id_avion=<?= $avion['id_avion'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer ce vol ?');">Supprimer</a>
+
+                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $repo = new VolsRepository();
     $repo->modifVol($vol);
 
-    header('Location: ../../vue/listeVols.php?success=modif');
+    header('Location: ../../vue/modifReussiteVol.html');
     exit;
 } else {
     die("Méthode non autorisée.");

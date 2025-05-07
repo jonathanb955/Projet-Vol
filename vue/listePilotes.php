@@ -30,6 +30,7 @@ $pilotes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Statut</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,6 +40,11 @@ $pilotes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= htmlspecialchars($pilote['nom']) ?></td>
                         <td><?= htmlspecialchars($pilote['prenom']) ?></td>
                         <td><?= htmlspecialchars($pilote['conges']) ?></td>
+                        <td class="text-center">
+                            <a href="modifPilote.php?id_pilote=<?= $pilote['id_pilote'] ?>" class="btn btn-warning btn-sm me-2">Modifier</a>
+                            <a href="suppPilote.php?id_pilote=<?= $pilote['id_pilote'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer ce vol ?');">Supprimer</a>
+
+                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -48,7 +54,7 @@ $pilotes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 <form action="pageAdmin.php" method="get">
     <button type="submit" class="btn btn-light partenaire" style="background-color: #0d6efd ; color: white; text-align: center">Retour</button>
-</form>'
+</form>
 </body>
 </html>
 
