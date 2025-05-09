@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'villeDepart' => $_POST['ville_depart'] ?? '',
         'villeArrivee' => $_POST['ville_arrivee'] ?? '',
         'photo' => $_POST['photo'] ?? '',
-        'refReservation' => $_POST['ref_reservation'] ?? '',
         'refAvion' => $_POST['ref_avion'] ?? '',
         'refPilote' => $_POST['ref_pilote'] ?? ''
     ]);

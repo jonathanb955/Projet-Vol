@@ -39,7 +39,7 @@ if (!empty($_POST["email"]) &&
             "villeResidence" => $_POST["ville_residence"],
             "mdp" => $hashpassword,
             "role"=> $role,
-            "refVol" => null
+
         ]);
         $verif=$utilisateurRepository->verifDoublonEmail($utilisateur);
         if ($verif) {

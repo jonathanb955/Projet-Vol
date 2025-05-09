@@ -15,9 +15,8 @@ if (!empty($_POST["nom"]) && !empty($_POST["prenom"])  && !empty($_POST["conges"
     $nouveauPilote = new \modele\Pilotes([
         'nomPilote' => $_POST["nom"],
         'prenomPilote' => $_POST["prenom"],
-        'conges' => $_POST["conges"] ?? 0,
-        'refAvion' => $_POST["ref_avion"] ?? null,
-        'refVol' => $_POST["ref_vol"] ?? null
+        'conges' => $_POST["conges"] ,
+
     ]);
 
     $piloteRepository = new pilotesRepository();

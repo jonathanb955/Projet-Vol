@@ -61,3 +61,17 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #004080;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #003366;
+}

@@ -3,13 +3,20 @@
 
 use bdd\Bdd;
 
+
 session_start();
+
 if (isset($_GET['logout'])) {
     session_destroy();
     header('Location: index.php');
     exit;
 }
+
 $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
+
+if ($connecte && isset($_SESSION['utilisateur']) && isset($_SESSION['utilisateur']['role'])) {
+    $_SESSION['role'] = $_SESSION['utilisateur']['role'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +47,13 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
                 <?php if ($connecte): ?>
                     <span class="dropdown-item-text"><strong>Bienvenue</strong><br><?php echo $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?></span>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="../Projet-Vol/vue/espaceClient.php"><i class="bi bi-person-circle"></i> Espace Client</a></li>
+
+                    <?php if ($_SESSION['role'] === 'admin'): ?>
+                        <li><a class="dropdown-item" href="../Projet-Vol/vue/pageAdmin.php"><i class="bi bi-shield-lock-fill"></i> Espace Admin</a></li>
+                    <?php else: ?>
+                        <li><a class="dropdown-item" href="../Projet-Vol/vue/espaceClient.php"><i class="bi bi-person-circle"></i> Espace Client</a></li>
+                    <?php endif; ?>
+
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="?logout=true"><i class="bi bi-box-arrow-right"></i> Déconnexion</a></li>
                 <?php else: ?>
@@ -49,6 +62,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
                     <li><a class="dropdown-item" href="vue/pageInscription.php">Inscription <i class="bi bi-person-plus-fill"></i></a></li>
                 <?php endif; ?>
             </ul>
+
         </div>
 
         <h1 class="mb-0" style="text-transform: capitalize">Aéroport International JBSkyTravel</h1>
@@ -57,9 +71,9 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
     <nav>
         <ul>
             <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#catalogue">Destinations à découvrir</a></li>
             <li><a href="#vols">Horaires des vols</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+
 
         </ul>
     </nav>
@@ -114,7 +128,8 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
         </button>
     </div>
 <br>
-
+</section>
+<section id="catalogue">
     <div class="card text-center">
         <div class="card-header" style="background-color:#004080">
             <br>
@@ -251,7 +266,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
     require_once 'src/bdd/Bdd.php';
     $bdd = new \bdd\Bdd();
     $pdo = $bdd->getBdd();
-    $query = "SELECT id_vol, destination, heure_depart, heure_arrivee FROM vols ORDER BY id_vol DESC LIMIT 5";
+    $query = "SELECT id_vol, destination, date_depart, heure_depart, heure_arrivee FROM vols ORDER BY id_vol DESC LIMIT 5";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
     $vols = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -265,6 +280,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
         <tr>
             <th>Vol</th>
             <th>Destination</th>
+            <th>Date départ</th>
             <th>Heure de départ</th>
             <th>Heure d'arrivée</th>
         </tr>
@@ -273,6 +289,7 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
             echo "<tr>";
             echo "<td>" . htmlspecialchars($vol['id_vol']) . "</td>";
             echo "<td>" . htmlspecialchars($vol['destination']) . "</td>";
+            echo "<td>" . htmlspecialchars($vol['date_depart']) . "</td>";
             echo "<td>" . htmlspecialchars($vol['heure_depart']) . "</td>";
             echo "<td>" . htmlspecialchars($vol['heure_arrivee']) . "</td>";
             echo "</tr>";
@@ -292,115 +309,12 @@ $connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
 
 
 
-<section id="services">
-
-    <div class="card text-center">
-        <div class="card-header" style="background-color:#004080">
-            <div class="message-case"><h4><em><u><strong>Nos services<i class="bi bi-balloon-fill"></i></strong></u></em></h4></div>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title" style="color: #004080">Restaurants, boutiques, salons VIP et bien plus pour rendre votre voyage agréable.</h5>
-
-            <div class="container">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body carte-partnaires1">
-                <div class="card-title partenaire" style="color: white ; -webkit-text-stroke: 0.5px black"> <br><h5>Bars et Restaurants</h5><em style="font-size: 13px ; color: #004080 ">Profitez de nos restaurants et bars pour un moment agréable et confortable avant votre vol.<br></em><br></div>
-                <form action="../Projet-Vol/vue/barsEtRestaurants.html" method="get">
-                    <button type="submit" class="btn btn-light partenaire" style="background-color: #004080 ; color: white">Découvrir</button>
-                </form>'
-            </div>
-        </div>
-
-
-            <div class="card" style="width: 18rem;">
-            <div class="card-body carte-partnaires2">
-                <div class="card-title partenaire" style="color: white ; -webkit-text-stroke: 0.5px black"> <br><h5>Shopping</h5><em style="font-size: 13px ; color: #004080 ">Vivez une expérience shopping avec nos boutiques partenaires proposant mode, beauté, luxe et souvenirs avant votre vol.<br></em><br></div>
-                <form action="../Projet-Vol/vue/shopping.html" method="get">
-                    <button type="submit" class="btn btn-light partenaire" style="background-color: #004080 ; color: white">Découvrir</button>
-                </form>'
-            </div>
-        </div>
-
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body carte-partnaires3">
-                        <div class="card-title partenaire" style="color: white ; -webkit-text-stroke: 0.5px black"> <br><h5>Salon VIP</h5><em style="font-size: 13px ; color: #004080 ">Découvrez le privilège de nos salons VIP offrant détente, services premium, élégance et exclusivité avant votre voyage.<br></em><br></div>
-                        <form action="../Projet-Vol/vue/salonVIP.html" method="get">
-                            <button type="submit" class="btn btn-light partenaire" style="background-color: #004080 ; color: white">Découvrir</button>
-                        </form>'
-                    </div>
-                </div>
-            </div>
-    </div>
-        <div class="card-footer text-body-secondary" style="background-color: #004080">
-            <br>
-        </div>
-    </div>
 
 
 
-</section>
 
 <br>
 <br>
-<br>
-
-<section id="contact">
-
-    <div class="card text-center">
-        <div class="card-header" style="background-color:#004080">
-            <div class="message-case"><h4><em><u><strong>Contact</strong></u></em></h4></div>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title" style="color: #004080"> Une question ?</h5>
-            <button type="button" class="btn btn-warning message-aide" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="JBSkyTravel@gmail.com"  >  Cliquez sur ce bouton <br>pour nous envoyer un message</button>
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header " style="background-color: #004080">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white">Nouveau message <i class="bi bi-chat"></i></h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label"><u style="color: #004080">Destinataire:</u></label>
-                                    <div class="input-group" >
-                                        <div class="input-group-text" id="btnGroupAddon2" style="background-color: #004080"><i class="bi bi-envelope-at" style="color: white"></i></div>
-                                        <input type="text" class="form-control" placeholder="JBSkyTravel@gmail.com" aria-label="Input group example" aria-describedby="btnGroupAddon2">
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label"><u style="color: #004080">Message :</u></label>
-                                    <div class="input-group">
-                                        <div class="input-group-text" id="btnGroupAddon2" style="background-color: #004080"><i class="bi bi-chat-left-text" style="color: white"></i></div>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Écrivez votre message ici"></textarea>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                        <div class="modal-footer" style="background-color: #004080">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Fermer</button>
-                            <button type="button" class="btn btn-primary" style="color: white">Envoyer le message <i class="bi bi-telegram"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-footer text-body-secondary" style="background-color: #004080">
-<br>
-        </div>
-    </div>
-
-
-
-
-
-    <br>
-    <br>
-    <br>
-</section>
 
 <footer>
     <p>&copy; 2025 Aéroport International. Tous droits réservés.</p>

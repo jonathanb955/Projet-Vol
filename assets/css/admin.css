@@ -104,5 +104,11 @@ body {
         margin-bottom: 40px;
     }
 
+.bouton-retour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 
+}
 

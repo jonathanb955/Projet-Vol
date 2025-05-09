@@ -22,7 +22,8 @@ if (!$data) {
     die("Vol introuvable.");
 }
 ?>
-
+<br>
+<br>
 <link href="../assets/css/modif.css" rel="stylesheet">
 <form action="../src/traitement/gestionVols.php" method="post">
     <h1><u>Modification Vol</u></h1>
@@ -30,6 +31,7 @@ if (!$data) {
 
     <label>Destination : <input type="text" name="destination" value="<?= htmlspecialchars($data['destination']) ?>"></label><br>
     <label>Description : <input type="text" name="description" value="<?= htmlspecialchars($data['description']) ?>"></label><br>
+    <label>Prix du billet : <input type="text" name="prix_billet_init" value="<?= htmlspecialchars($data['prix_billet_init']) ?>"></label><br>
     <label>Date de départ : <input type="date" name="date_depart" value="<?= $data['date_depart'] ?>"></label><br>
     <label>Date d'arrivée : <input type="date" name="date_arrivee" value="<?= $data['date_arrivee'] ?>"></label><br>
     <label>Durée trajet : <input type="text" name="duree_trajet" value="<?= htmlspecialchars($data['duree_trajet']) ?>"></label><br>
@@ -37,11 +39,12 @@ if (!$data) {
     <label>Heure arrivée : <input type="time" name="heure_arrivee" value="<?= $data['heure_arrivee'] ?>"></label><br>
     <label>Ville de départ : <input type="text" name="ville_depart" value="<?= htmlspecialchars($data['ville_depart']) ?>"></label><br>
     <label>Ville d'arrivée : <input type="text" name="ville_arrivee" value="<?= htmlspecialchars($data['ville_arrivee']) ?>"></label><br>
-    <label>Photo (URL ou chemin) : <input type="text" name="photo" value="<?= htmlspecialchars($data['photo']) ?>"></label><br>
-    <label>Réf Réservation : <input type="text" name="ref_reservation" value="<?= htmlspecialchars($data['ref_reservation']) ?>"></label><br>
+    <label>Photo de la destination : <input type="text" name="photo" value="<?= htmlspecialchars($data['photo']) ?>"></label><br>
     <label>Réf Avion : <input type="text" name="ref_avion" value="<?= htmlspecialchars($data['ref_avion']) ?>"></label><br>
     <label>Réf Pilote : <input type="text" name="ref_pilote" value="<?= htmlspecialchars($data['ref_pilote']) ?>"></label><br>
 
     <button type="submit">Modifier</button>
+    <p class="footer"> <a href="pageAdmin.php">Retourner à l'accueil</a></p>
 </form>
-
+<br>
+<br>

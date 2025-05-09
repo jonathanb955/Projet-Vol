@@ -15,9 +15,10 @@ class Vols
     private $villeDepart;
     private $villeArrivee;
     private $photo;
-    private $refReservation;
+
     private $refAvion;
     private $refPilote;
+    private $prixBilletInit;
 
     public function __construct(array $donnees)
     {
@@ -137,21 +138,7 @@ class Vols
         $this->villeArrivee = $villeArrivee;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getRefReservation()
-    {
-        return $this->refReservation;
-    }
 
-    /**
-     * @param mixed $refReservation
-     */
-    public function setRefReservation($refReservation)
-    {
-        $this-> refReservation= $refReservation;
-    }
 
     /**
      * @return mixed
@@ -269,5 +256,19 @@ class Vols
         $this->description = $description;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPrixBilletInit()
+    {
+        return $this->prixBilletInit;
+    }
 
+    /**
+     * @param mixed $prixBilletInit
+     */
+    public function setPrixBilletInit($prixBilletInit)
+    {
+        $this-> prixBilletInit= $prixBilletInit;
+    }
 }

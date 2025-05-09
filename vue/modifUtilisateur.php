@@ -34,4 +34,5 @@ if (!$data) {
     <label>Email : <input type="email" name="email" value="<?= htmlspecialchars($data['email']) ?>"></label><br>
     <label>Role : <input type="text" name="role" value="<?= htmlspecialchars($data['role']) ?>"></label><br>
     <button type="submit" name="modifier">Modifier</button>
+    <p class="footer"> <a href="pageAdmin.php">Retourner à l'accueil</a></p>
 </form>

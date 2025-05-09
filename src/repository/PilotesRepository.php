@@ -13,13 +13,12 @@ class PilotesRepository{
     public function ajoutPilote(Pilotes $pilotes) {
         $bdd = new Bdd();
         $database = $bdd->getBdd();
-        $req = $database->prepare('INSERT INTO pilotes (nom, prenom, conges, ref_avion, ref_vol) VALUES (:nom, :prenom, :conges, :ref_avion, :ref_vol)');
+        $req = $database->prepare('INSERT INTO pilotes (nom, prenom, conges) VALUES (:nom, :prenom, :conges)');
         $req->execute([
             'nom' => $pilotes->getNomPilote(),
             'prenom' => $pilotes->getPrenomPilote(),
             'conges' => $pilotes->getConges(),
-           'ref_avion' => $pilotes->getRefAvion(),
-            'ref_vol' => $pilotes->getRefVol(),
+
 
 
         ]);
@@ -32,17 +31,14 @@ class PilotesRepository{
         $req = $database->prepare('UPDATE pilotes 
         SET nom = :nom, 
             prenom = :prenom,
-            conges = :conges,
-            ref_avion = :ref_avion,
-            ref_vol = :ref_vol
+            conges = :conges
         WHERE id_pilote = :id_pilote');
         $req->execute([
             'id_pilote' => $pilotes->getIdPilote(),
             'nom' => $pilotes->getNomPilote(),
             'prenom' => $pilotes->getPrenomPilote(),
             'conges' => $pilotes->getConges(),
-            'ref_avion' => $pilotes->getRefAvion(),
-            'ref_vol' => $pilotes->getRefVol(),
+
         ]);
 
         return $pilotes;

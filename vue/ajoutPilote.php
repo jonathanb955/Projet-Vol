@@ -1,4 +1,15 @@
+<?php
 
+use bdd\Bdd;
+
+session_start();
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: index.php');
+    exit;
+}
+$connecte = isset($_SESSION['connexion']) && $_SESSION['connexion'] === true;
+?>
 <?php
 
 
@@ -27,6 +38,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
     <title>Ajouts de pilotes</title>
     <link rel="stylesheet" href="../assets/css/ajoutAvion.css">
 </head>
+
 <body>
 
 <div class="form-container">
@@ -45,8 +57,8 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
         <label for="conges">Disponible ?</label>
         <select name="conges" id="conges">
-            <option value="oui">Disponible</option>
-            <option value="non">Indisponible</option>
+            <option value="Disponible">Disponible</option>
+            <option value="Indisponible">Indisponible</option>
         </select>
 
 
@@ -54,6 +66,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
 
         <button type="submit">Soumettre</button>
+        <p class="footer"> <a href="pageAdmin.php">Retourner à l'accueil</a></p>
     </form>
 </div>
 

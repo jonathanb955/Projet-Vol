@@ -34,6 +34,7 @@ if (!$data) {
 
 
     <button type="submit">Modifier</button>
+    <p class="footer"> <a href="pageAdmin.php">Retourner à l'accueil</a></p>
 </form>
 
 

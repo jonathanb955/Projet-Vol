@@ -7,7 +7,7 @@ require_once __DIR__ . '/../bdd/Bdd.php';
 require_once "../modele/Vols.php";
 require_once "../repository/VolsRepository.php";
 
-if (!empty($_POST["destination"])  &&!empty($_POST["description"])&& !empty($_POST["date_depart"]) && !empty($_POST["date_arrivee"]) && !empty($_POST["duree_trajet"]) && !empty($_POST["heure_depart"]) && !empty($_POST["heure_arrivee"]) && !empty($_POST["ville_depart"]) && !empty($_POST["ville_arrivee"]) && !empty($_POST["photo"])) {
+if (!empty($_POST["destination"])  &&!empty($_POST["description"])&& !empty($_POST["prix_billet_init"])&& !empty($_POST["date_depart"]) && !empty($_POST["date_arrivee"]) && !empty($_POST["duree_trajet"]) && !empty($_POST["heure_depart"]) && !empty($_POST["heure_arrivee"]) && !empty($_POST["ville_depart"]) && !empty($_POST["ville_arrivee"]) && !empty($_POST["photo"])) {
 
 
 
@@ -23,6 +23,7 @@ if (!empty($_POST["destination"])  &&!empty($_POST["description"])&& !empty($_PO
 
          $nouveauVol = new Vols([
              'destination' => $_POST["destination"],
+             'prixBilletInit' => $_POST["prix_billet_init"],
                 'description' => $_POST["description"],
                 'dateDepart' => $_POST["date_depart"],
              'dateArrivee' => $_POST["date_arrivee"],
@@ -32,9 +33,8 @@ if (!empty($_POST["destination"])  &&!empty($_POST["description"])&& !empty($_PO
              'villeDepart' => $_POST["ville_depart"],
              'villeArrivee' => $_POST["ville_arrivee"],
         'photo' => $_POST["photo"],
-             'refReservation' => $_POST["ref_reservation"] ?? null,
-        'refAvion' => $_POST["ref_avion"] ?? null,
-        'refPilote' => $_POST["ref_pilote"] ?? null
+        'refAvion' => $_POST["ref_avion"] ,
+        'refPilote' => $_POST["ref_pilote"]
     ]);
 
     $volsRepository = new VolsRepository();

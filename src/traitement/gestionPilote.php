@@ -11,12 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $pilote = new Pilotes([
-        'id_pilote' => $_POST['id_pilote'] ?? null,
+        'idPilote' => $_POST['id_pilote'],
         'nom' => $_POST['nom'] ?? '',
         'prenom' => $_POST['prenom'] ?? '',
         'conges' => $_POST['conges'] ?? '',
-        'ref_vol' => null,
-        'ref_avion' => null
+
 
     ]);
 

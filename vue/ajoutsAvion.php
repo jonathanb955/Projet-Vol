@@ -48,6 +48,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
 
         <button type="submit">Soumettre</button>
+        <p class="footer"> <a href="pageAdmin.php">Retourner à l'accueil</a></p>
     </form>
 </div>
 

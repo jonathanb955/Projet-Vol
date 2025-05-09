@@ -59,7 +59,7 @@ body {
 .film-info p {
     color: #666;
     font-size: 14px;
-    flex-grow: 1; /* Permet de pousser le bouton vers le bas */
+    flex-grow: 1;
 }
 
 .film-info form {
@@ -83,7 +83,7 @@ form button:hover {
     background-color: #0056b3;
 }
 
-/* Style de la barre de recherche */
+
 form {
     display: flex;
     justify-content: center;
@@ -122,4 +122,10 @@ form button {
 
 form button:hover {
     background-color: #0056b3;
+}
+header {
+    background-color: #004080;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }

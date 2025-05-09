@@ -24,6 +24,7 @@ if (!isset($_SESSION['connexion']) || $_SESSION['connexion'] !== true || $_SESSI
 <body>
 
 <div class="main-content">
+
     <div class="btn-group position-absolute end-0 me-3">
         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-person-square"></i>
@@ -89,6 +90,11 @@ if (!isset($_SESSION['connexion']) || $_SESSION['connexion'] !== true || $_SESSI
 
 
     </div>
+<br>
+<br>
 
+<form action="../index.php" method="get" class="bouton-retour">
+    <button type="submit" class="btn  partenaire" style="background-color: #0d6efd ; color: white; text-align: center">Retour</button>
+</form>
 </body>
 </html>

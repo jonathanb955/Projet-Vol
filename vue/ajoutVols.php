@@ -47,6 +47,9 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         <label>Description du lieu :</label>
         <input type="text" name="description"  required>
 
+        <label>Prix du billet :</label>
+        <input type="text" name="prix_billet_init"  required>
+
         <label>Date départ:</label>
         <input type="date" name="date_depart"  min="<?php echo $today; ?>" required>
 
@@ -71,7 +74,44 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         <label for="photo">Lien de la photo de la destination :</label>
         <input type="text" name="photo" id="photo"  required>
 
+
+        <label for="ref_avion">Sélectionner un avion :</label>
+        <select name="ref_avion" id="ref_avion" required>
+            <?php
+            $pdo = new PDO('mysql:host=localhost;dbname=projet_vol;charset=utf8', 'root', '');
+
+            $stmt = $pdo->query("SELECT id_avion, modele FROM avions");
+            while ($avion = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value='" . $avion['id_avion'] . "'>" . $avion['modele'] . "</option>";
+            }
+            ?>
+        </select>
+
+        <label for="ref_pilote">Sélectionner un pilote :</label>
+        <select name="ref_pilote" id="ref_pilote" required>
+            <?php
+            // Connexion à la base de données
+            $pdo = new PDO('mysql:host=localhost;dbname=projet_vol;charset=utf8', 'root', '');
+
+            // Requête pour obtenir les pilotes dont la colonne conges n'est pas 'Indisponible'
+            $stmt = $pdo->query("SELECT id_pilote, nom, prenom FROM pilotes WHERE conges != 'Indisponible'");
+
+            // Vérification si des pilotes sont disponibles
+            if ($stmt->rowCount() > 0) {
+                while ($pilote = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<option value='" . $pilote['id_pilote'] . "'>" . $pilote['nom'] . " " . $pilote['prenom'] . "</option>";
+                }
+            } else {
+                // Si aucun pilote n'est disponible
+                echo "<option disabled>Aucun pilote disponible</option>";
+            }
+            ?>
+        </select>
+
+
+
         <button type="submit">Soumettre</button>
+        <p class="footer"> <a href="pageAdmin.php">Retourner à l'accueil</a></p>
     </form>
 </div>
 

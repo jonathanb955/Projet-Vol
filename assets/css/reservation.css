@@ -1,130 +1,96 @@
+
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #fafafa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    background: linear-gradient(to right, #f0f2f5, #dbe9f4);
+    color: #333;
 }
 
 .title {
     text-align: center;
-    margin: 40px 0;
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.catalogue {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    font-size: 2.5em;
+    margin: 30px 0;
+    color: black;
 }
 
 .film-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
 }
 
 .film-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
 }
 
 .film-card img {
-    width: 100%;
-    height: 350px;
+    max-width: 280px;
+    border-radius: 12px;
     object-fit: cover;
-    border-bottom: 4px solid #f1f1f1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .film-info {
-    padding: 20px;
-    background-color: #fff;
+    flex: 1;
+    min-width: 250px;
 }
 
-.film-info h2 {
-    font-size: 24px;
-    color: #2980b9;
-    margin-bottom: 10px;
+.film-info h5 {
+    margin: 0 0 10px;
+    color: black;
 }
 
 .film-info p {
-    font-size: 16px;
-    color: #7f8c8d;
-    margin-bottom: 8px;
+    margin: 5px 0;
+    font-size: 1em;
 }
 
-.film-info p strong {
-    color: #34495e;
-}
-
-.btn-reserver {
-    background-color: #2980b9;
-    color: #fff;
-    padding: 12px 20px;
-    font-size: 16px;
+button {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
-    display: block;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.btn-reserver:hover {
-    background-color: #1c5985;
-}
-
-.film-card .btn-reserver {
-    font-size: 18px;
-}
-
-.reservation-details {
-    background-color: #ffffff;
-    padding: 30px;
-    margin: 30px auto;
-    max-width: 800px;
+    font-size: 1em;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.reservation-details h2 {
-    font-size: 32px;
-    color: #2980b9;
-    margin-bottom: 20px;
-}
-
-.reservation-details p {
-    font-size: 18px;
-    color: #34495e;
-    margin-bottom: 15px;
-}
-
-.reservation-details p strong {
-    color: #2980b9;
-}
-
-.reservation-details .btn-final-reserve {
-    background-color: #27ae60;
-    color: #fff;
-    padding: 12px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
-    display: inline-block;
-    margin-top: 20px;
-    text-align: center;
-    transition: background-color 0.3s;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
-.reservation-details .btn-final-reserve:hover {
-    background-color: #219150;
+button:hover {
+    background-color: #1e40af;
+}
+
+@media (max-width: 768px) {
+    .film-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .film-card img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .film-info {
+        width: 100%;
+        text-align: center;
+    }
+}
+header {
+    background-color: #004080;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
