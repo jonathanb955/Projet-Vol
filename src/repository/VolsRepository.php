@@ -41,7 +41,7 @@ class VolsRepository
         $req = $database->prepare('UPDATE vols 
         SET destination = :destination, 
             description = :description, 
-            prix_billet_init	= :prix_billet_init,
+            prix_billet_init= :prix_billet_init,
             date_depart = :date_depart, 
             date_arrivee = :date_arrivee,
             duree_trajet = :duree_trajet,

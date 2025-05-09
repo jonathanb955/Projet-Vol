@@ -5,13 +5,16 @@ if (!isset($_GET['id_utilisateur'])) {
     die("ID manquant.");
 }
 
-$id = (int) $_GET['id_utilisateur'];
+$idUser = (int) $_GET['id_utilisateur'];
 
 $bdd = new \bdd\Bdd();
 $pdo = $bdd->getBdd();
 
-$stmt = $pdo->prepare("DELETE FROM utilisateur WHERE id_utilisateur = ?");
-$stmt->execute([$id]);
+$stmtReservations = $pdo->prepare("DELETE FROM reservation WHERE ref_utilisateur = ?");
+$stmtReservations->execute([$idUser]);
+
+$stmtUser = $pdo->prepare("DELETE FROM utilisateur WHERE id_utilisateur = ?");
+$stmtUser->execute([$idUser]);
 
 header("Location: listeUtilisateurs.php");
 exit;

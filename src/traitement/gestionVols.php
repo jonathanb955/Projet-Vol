@@ -11,9 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $vol = new Vols([
-        'idVols' => $_POST['id_vols'] ?? null,
+        'idVols' => $_POST['id_vol'] ,
         'destination' => $_POST['destination'] ?? '',
         'description' => $_POST['description'] ?? '',
+        'prixBilletInit' => $_POST['prix_billet_init'] ?? 0,
         'dateDepart' => $_POST['date_depart'] ?? '',
         'dateArrivee' => $_POST['date_arrivee'] ?? '',
         'dureeTrajet' => $_POST['duree_trajet'] ?? '',

@@ -81,10 +81,7 @@ if (!isset($_SESSION['connexion']) || $_SESSION['connexion'] !== true || $_SESSI
             <h5>Ajout d'un pilote</h5>
             <a href="ajoutPilote.php">Accéder</a>
         </div>
-        <div class="admin-card">
-            <h5>Ajout d'un magasin</h5>
-            <a href="#">Accéder</a>
-        </div>
+
     </div>
 
 

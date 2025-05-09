@@ -6,7 +6,10 @@
     <link href="../assets/css/pageInscription.css" rel="stylesheet">
     <title>Formulaire d'inscription</title>
 </head>
-
+<br>
+<br>
+<br>
+<br>
 <body>
 <form action="../src/traitement/gestionInscription.php" method="POST">
     <h2><u>Inscription</u></h2>
